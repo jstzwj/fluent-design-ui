@@ -1,0 +1,38 @@
+@import "../color/colors.less";
+
+.fluent-button{
+    background: @LightBaseLowColor;
+    color: @LightBaseHighColor;
+    display: inline-block;
+    margin-bottom: 0;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: default;
+    background-image: none;
+    border: 3px solid transparent;
+    white-space: nowrap;
+    user-select: none;
+    outline:none;
+
+    &:hover{
+        border: 3px solid @LightBaseMediumLowColor;
+    }
+
+    &:active,
+    &.active {
+        cursor: default;
+    }
+
+    &.disabled,
+    &[disabled]{
+        &,
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            color: @LightChromeDisabledLowColor;
+            border: 3px solid transparent;
+        }   
+    }
+}
