@@ -10,19 +10,10 @@
     touch-action: manipulation;
     cursor: default;
     background-image: none;
-    border: 3px solid transparent;
+    border: 2px solid transparent;
     white-space: nowrap;
     user-select: none;
     outline:none;
-
-    &:hover{
-        border: 3px solid @LightBaseMediumLowColor;
-    }
-
-    &:active,
-    &.active {
-        cursor: default;
-    }
 
     &.disabled,
     &[disabled]{
@@ -32,7 +23,19 @@
         &:active,
         &.active {
             color: @LightChromeDisabledLowColor;
-            border: 3px solid transparent;
+            background: @LightChromeDisabledHighColor;
+            border: 2px solid transparent;
         }   
+    }
+
+    &:hover{
+        border: 2px solid @LightBaseMediumLowColor;
+    }
+
+    &:active,
+    &.active {
+        cursor: default;
+        background: @LightBaseMediumLowColor;
+        border: 2px solid transparent;
     }
 }

@@ -1,8 +1,12 @@
 import './styles/index.less'
 import Button from './components/button'
+import CheckBox from './components/checkbox'
+import Icon from './components/icon'
 
 const components = {
-  Button
+  Button,
+  CheckBox,
+  Icon
 }
 
 const install = function (Vue) {

@@ -16,7 +16,9 @@ module.exports = {
                 title:'components',
                 collapsable: false,
                 children:[
-                    '/components/button.md'
+                    '/components/button.md',
+                    '/components/checkbox.md',
+                    '/components/icon.md'
                 ]
             }
             

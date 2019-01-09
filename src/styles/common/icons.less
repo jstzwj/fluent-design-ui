@@ -1,0 +1,36 @@
+
+@segoe-font-family:'segoe UI';
+@segoe-icons-version:'v1710';
+@segoe-icons-font-path: '../../assets/Segoe fonts v1710';
+
+@font-face {
+    font-family: @segoe-font-family;
+        src:
+        url("@{segoe-icons-font-path}/SegMDL2.ttf?v=@{segoe-icons-version}") format("truetype"),
+        url("@{segoe-icons-font-path}/segoeui.ttf?v=@{segoe-icons-version}") format("truetype"),
+        url("@{segoe-icons-font-path}/segoeuib.ttf?v=@{segoe-icons-version}") format("truetype"),
+        url("@{segoe-icons-font-path}/segoeuil.ttf?v=@{segoe-icons-version}") format("truetype"),
+        url("@{segoe-icons-font-path}/segoeuisl.ttf?v=@{segoe-icons-version}") format("truetype"),
+        url("@{segoe-icons-font-path}/seguisb.ttf?v=@{segoe-icons-version}") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.fluent-icon {
+    display: inline-block;
+    font-family: @segoe-font-family;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    vertical-align: middle;
+}
+
+.fluent-icon-global-navigation-button:before {
+    content: "\e700";
+}
