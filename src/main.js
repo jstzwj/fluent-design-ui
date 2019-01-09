@@ -1,13 +1,24 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
-import App from './App'
+import './styles/index.less'
+import Button from './components/button'
 
-Vue.config.productionTip = false
+const components = {
+  Button
+}
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  components: { App },
-  template: '<App/>'
-})
+const install = function (Vue) {
+  if (install.installed) {
+    return
+  }
+  Object.keys(components).forEach(key => {
+    Vue.component(components[key].name, components[key])
+  })
+}
+
+// auto install by cdn
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue)
+}
+
+export default {
+  install
+}
