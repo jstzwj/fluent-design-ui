@@ -1,8 +1,8 @@
 {
-  "name": "fluent-vue",
-  "version": "1.0.0",
+  "name": "fluent-design",
+  "version": "0.0.1",
   "description": "A fluent design UI Toolkit based on Vue.js",
-  "author": "JasonWang <1103870790@qq.com>",
+  "author": "JasonWang <jstzwj@aliyun.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
@@ -11,7 +11,9 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "docs:dev": "vuepress dev docs --host localhost",
+    "docs:build": "vuepress build docs"
   },
   "dependencies": {
     "less": "^3.9.0",
@@ -71,9 +73,10 @@
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",
-    "webpack": "^3.6.0",
+    "vuepress": "^0.14.8",
+    "webpack": "^4.28.1",
     "webpack-bundle-analyzer": "^2.9.0",
-    "webpack-dev-server": "^2.9.1",
+    "webpack-dev-server": "^2.9.7",
     "webpack-merge": "^4.1.0"
   },
   "engines": {
