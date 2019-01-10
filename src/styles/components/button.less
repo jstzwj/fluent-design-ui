@@ -1,7 +1,7 @@
 @import "../color/colors.less";
 
 .fluent-button{
-    background: @LightBaseLowColor;
+    background-color: @LightBaseLowColor;
     color: @LightBaseHighColor;
     display: inline-block;
     margin-bottom: 0;
@@ -14,6 +14,14 @@
     white-space: nowrap;
     user-select: none;
     outline:none;
+
+    &theme-dark{
+        background-color: @DarkBaseLowColor;
+    }
+
+    &theme-light{
+        background-color: @LightBaseLowColor;
+    }
 
     &.disabled,
     &[disabled]{
