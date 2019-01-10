@@ -1,0 +1,39 @@
+
+
+.button-color(@color; @background; @border) {
+    background-color: @background;
+    color: @color;
+    border: 2px solid @border;
+}
+
+.button-disabled-color(@color; @background; @border) {
+    &.disabled,
+    &[disabled]{
+        &,
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            color: @color;
+            background: @background;
+            border: 2px solid @border;
+        }   
+    }
+}
+
+.button-hover-color(@color; @background; @border) {
+    &:hover{
+        color: @color;
+        background: @background;
+        border: 2px solid @border;
+    }
+}
+
+.button-active-color(@color; @background; @border) {
+    &:active,
+    &.active {
+        color: @color;
+        background: @background;
+        border: 2px solid @border;
+    }
+}

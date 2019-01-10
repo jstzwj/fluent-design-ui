@@ -1,8 +1,7 @@
 @import "../color/colors.less";
+@import "../mixins/button.less";
 
 .fluent-button{
-    background-color: @LightBaseLowColor;
-    color: @LightBaseHighColor;
     display: inline-block;
     margin-bottom: 0;
     text-align: center;
@@ -10,40 +9,26 @@
     touch-action: manipulation;
     cursor: default;
     background-image: none;
-    border: 2px solid transparent;
     white-space: nowrap;
     user-select: none;
     outline:none;
 
-    &theme-dark{
-        background-color: @DarkBaseLowColor;
+    .button-color(@LightBaseHighColor, @LightBaseLowColor, transparent);
+    .button-disabled-color(@LightChromeDisabledLowColor, @LightChromeDisabledHighColor, transparent);
+    .button-hover-color(@LightBaseHighColor, @LightBaseLowColor, @LightBaseMediumLowColor);
+    .button-active-color(@LightBaseHighColor, @LightBaseMediumLowColor, transparent);
+
+    &.theme-dark{
+        .button-color(@DarkBaseHighColor, @DarkBaseLowColor, transparent);
+        .button-disabled-color(@DarkChromeDisabledLowColor, @DarkChromeDisabledHighColor, transparent);
+        .button-hover-color(@DarkBaseHighColor, @DarkBaseLowColor, @DarkBaseMediumLowColor);
+        .button-active-color(@DarkBaseHighColor, @DarkBaseMediumLowColor, transparent);
     }
 
-    &theme-light{
-        background-color: @LightBaseLowColor;
-    }
-
-    &.disabled,
-    &[disabled]{
-        &,
-        &:hover,
-        &:focus,
-        &:active,
-        &.active {
-            color: @LightChromeDisabledLowColor;
-            background: @LightChromeDisabledHighColor;
-            border: 2px solid transparent;
-        }   
-    }
-
-    &:hover{
-        border: 2px solid @LightBaseMediumLowColor;
-    }
-
-    &:active,
-    &.active {
-        cursor: default;
-        background: @LightBaseMediumLowColor;
-        border: 2px solid transparent;
+    &.theme-light{
+        .button-color(@LightBaseHighColor, @LightBaseLowColor, transparent);
+        .button-disabled-color(@LightChromeDisabledLowColor, @LightChromeDisabledHighColor, transparent);
+        .button-hover-color(@LightBaseHighColor, @LightBaseLowColor, @LightBaseMediumLowColor);
+        .button-active-color(@LightBaseHighColor, @LightBaseMediumLowColor, transparent);
     }
 }
