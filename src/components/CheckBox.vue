@@ -2,10 +2,11 @@
     <label :class="wrapClasses"
     v-on:mousedown="onMousedown"
     v-on:mouseup="onMouseup"
-    v-on:mouseleave="onMouseleave"
+    v-on:mouseout="onMouseout"
     v-on:mouseover="onMouseover" ref="checkbox">
-      <Icon :type="checkboxIcon" ref="checkboxicon"></Icon>
-      <input :class="inputClasses" type="checkbox" class="regular-checkbox" />
+      <Icon :type="iconType" ref="checkboxicon" :color="iconColor" fontWeight="normal"></Icon>
+      <Icon type="checkbox" fontWeight="normal" v-if="showBorder" style="position:absolute; top:2px;"></Icon>
+      <input :class="inputClasses" type="checkbox" class="regular-checkbox"/>
     </label>
 </template>
 
@@ -19,7 +20,10 @@ export default {
   props: [],
   data: function () {
     return {
-      checkboxIcon: 'checkbox'
+      iconType: 'checkbox',
+      state: 'unchecked',
+      showBorder: true,
+      iconColor: 'rgba(0,0,0,0.59765625)'
     }
   },
   computed: {
@@ -32,31 +36,37 @@ export default {
   },
   methods: {
     onMousedown () {
-      if (this.checkboxIcon === 'checkbox') {
-        this.checkboxIcon = 'checkbox-fill'
-      } else if (this.checkboxIcon === 'checkbox-composite-reversed') {
-        this.$refs.checkbox.style.color = 'rgb(0,0,0)'
-        this.checkboxIcon = 'checkbox-composite-reversed'
+      if (this.state === 'unchecked') {
+        this.iconType = 'checkbox-fill'
+      } else if (this.state === 'checked') {
+        this.iconColor = 'rgba(0,0,0,0.59765625)'
+        this.iconType = 'checkbox-composite-reversed'
       }
     },
     onMouseup () {
-      if (this.checkboxIcon === 'checkbox-fill') {
-        this.$refs.checkbox.style.color = 'rgb(41,143,204)'
-        this.checkboxIcon = 'checkbox-composite-reversed'
-      } else if (this.checkboxIcon === 'checkbox-composite-reversed') {
-        this.$refs.checkbox.style.color = 'rgb(0,0,0)'
-        this.checkboxIcon = 'checkbox'
+      if (this.state === 'unchecked') {
+        this.iconColor = 'rgb(41,143,204)'
+        // this.borderColor = 'rgba(0,0,0,0.59765625)'
+        this.showBorder = true
+        this.iconType = 'checkbox-composite-reversed'
+        this.state = 'checked'
+      } else if (this.state === 'checked') {
+        this.iconColor = 'rgba(0,0,0,0.59765625)'
+        // this.borderColor = 'rgba(0,0,0,0)'
+        this.showBorder = false
+        this.iconType = 'checkbox'
+        this.state = 'unchecked'
       }
     },
-    onMouseleave () {
-      if (this.checkboxIcon === 'checkbox-fill') {
-        this.checkboxIcon = 'checkbox-composite'
-      } else if (this.checkboxIcon === 'checkbox-composite-reversed') {
-        this.checkboxIcon = 'checkbox'
-      }
+    onMouseout (event) {
+      // this.borderColor = 'rgba(0,0,0,0)'
+      this.showBorder = false
     },
-    onMouseover () {
-
+    onMouseover (event) {
+      if (this.state === 'checked') {
+        // this.borderColor = 'rgba(0,0,0,0.59765625)'
+        this.showBorder = true
+      }
     }
   }
 }
