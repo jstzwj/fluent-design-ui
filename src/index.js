@@ -2,11 +2,15 @@ import './styles/index.less'
 import Button from './components/button'
 import CheckBox from './components/checkbox'
 import Icon from './components/icon'
+import ComboBox from './components/combobox'
+import ToggleSwitch from './components/toggleswitch'
 
 const components = {
   Button,
   CheckBox,
-  Icon
+  Icon,
+  ComboBox,
+  ToggleSwitch
 }
 
 const install = function (Vue) {

@@ -18,7 +18,9 @@ module.exports = {
                 children:[
                     '/components/button.md',
                     '/components/checkbox.md',
-                    '/components/icon.md'
+                    '/components/icon.md',
+                    '/components/combobox.md',
+                    '/components/toggleswitch.md'
                 ]
             }
             
