@@ -5,7 +5,7 @@
     v-on:mouseout="onMouseout"
     v-on:mouseover="onMouseover" ref="checkbox">
       <Icon :type="iconType" ref="checkboxicon" :color="iconColor" fontWeight="normal"></Icon>
-      <Icon type="checkbox" fontWeight="normal" v-if="showBorder" style="position:absolute; top:2px;"></Icon>
+      <Icon type="checkbox" fontWeight="normal" v-if="showBorder" style="position:absolute; top:2px; left:0px;"></Icon>
       <input :class="inputClasses" type="checkbox" class="regular-checkbox"/>
     </label>
 </template>
