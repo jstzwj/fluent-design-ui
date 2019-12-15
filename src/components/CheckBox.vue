@@ -1,12 +1,11 @@
 <template>
-    <label :class="wrapClasses"
-    v-on:mousedown="onMousedown"
-    v-on:mouseup="onMouseup"
-    v-on:mouseout="onMouseout"
-    v-on:mouseover="onMouseover" ref="checkbox">
-      <Icon :type="iconType" ref="checkboxicon" :color="iconColor" fontWeight="normal"></Icon>
-      <Icon type="checkbox" fontWeight="normal" v-if="showBorder" style="position:absolute; top:2px; left:0px;"></Icon>
-      <input :class="inputClasses" type="checkbox" class="regular-checkbox"/>
+    <label class="fluent-checkbox-wrap" ref="checkbox">
+      <input class="fluent-checkbox-input" type="checkbox" v-model="checked"/>
+      <Icon type="checkbox" v-if="!checked" fontWeight="normal" class="fluent-checkbox-box"></Icon>
+      <span v-if="!checked" class="fluent-checkbox-fill"></span>
+      <Icon type="checkbox-composite-reversed" v-if="checked" fontWeight="normal" class="fluent-checkbox-check"></Icon>
+      <Icon type="checkbox" fontWeight="normal" v-if="checked" class="fluent-checkbox-border"></Icon>
+      <span> {{checked}}</span>
     </label>
 </template>
 
@@ -17,57 +16,21 @@ export default {
   components: {
     'Icon': Icon
   },
-  props: [],
+  props: ['checked'],
   data: function () {
     return {
       iconType: 'checkbox',
       state: 'unchecked',
-      showBorder: true,
-      iconColor: 'rgba(0,0,0,0.59765625)'
+      checkbox: false
     }
   },
   computed: {
-    wrapClasses () {
-      return ['fluent-checkbox-wrap']
-    },
-    inputClasses () {
-      return ['fluent-checkbox-input']
-    }
   },
   methods: {
-    onMousedown () {
-      if (this.state === 'unchecked') {
-        this.iconType = 'checkbox-fill'
-      } else if (this.state === 'checked') {
-        this.iconColor = 'rgba(0,0,0,0.59765625)'
-        this.iconType = 'checkbox-composite-reversed'
-      }
-    },
-    onMouseup () {
-      if (this.state === 'unchecked') {
-        this.iconColor = 'rgb(41,143,204)'
-        // this.borderColor = 'rgba(0,0,0,0.59765625)'
-        this.showBorder = true
-        this.iconType = 'checkbox-composite-reversed'
-        this.state = 'checked'
-      } else if (this.state === 'checked') {
-        this.iconColor = 'rgba(0,0,0,0.59765625)'
-        // this.borderColor = 'rgba(0,0,0,0)'
-        this.showBorder = false
-        this.iconType = 'checkbox'
-        this.state = 'unchecked'
-      }
-    },
-    onMouseout (event) {
-      // this.borderColor = 'rgba(0,0,0,0)'
-      this.showBorder = false
-    },
-    onMouseover (event) {
-      if (this.state === 'checked') {
-        // this.borderColor = 'rgba(0,0,0,0.59765625)'
-        this.showBorder = true
-      }
-    }
+    
   }
 }
 </script>
+
+<style scoped>
+</style>
