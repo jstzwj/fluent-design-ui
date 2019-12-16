@@ -1,0 +1,39 @@
+
+
+.fluent-color(@color; @background; @border) {
+    background-color: @background;
+    color: @color;
+    border: 2px solid @border;
+}
+
+.fluent-disabled-color(@color; @background; @border) {
+    &.disabled,
+    &[disabled]{
+        &,
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            color: @color;
+            background: @background;
+            border: 2px solid @border;
+        }   
+    }
+}
+
+.fluent-hover-color(@color; @background; @border) {
+    &:hover{
+        color: @color;
+        background: @background;
+        border: 2px solid @border;
+    }
+}
+
+.fluent-active-color(@color; @background; @border) {
+    &:active,
+    &.active {
+        color: @color;
+        background: @background;
+        border: 2px solid @border;
+    }
+}

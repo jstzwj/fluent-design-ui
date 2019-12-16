@@ -1,11 +1,9 @@
 <template>
     <label class="fluent-checkbox-wrap" ref="checkbox">
       <input class="fluent-checkbox-input" type="checkbox" v-model="checked"/>
-      <Icon type="checkbox" v-if="!checked" fontWeight="normal" class="fluent-checkbox-box"></Icon>
-      <span v-if="!checked" class="fluent-checkbox-fill"></span>
-      <Icon type="checkbox-composite-reversed" v-if="checked" fontWeight="normal" class="fluent-checkbox-check"></Icon>
-      <Icon type="checkbox" fontWeight="normal" v-if="checked" class="fluent-checkbox-border"></Icon>
-      <span> {{checked}}</span>
+      <span v-if="!checked" class="fluent-checkbox-box"></span>
+      <span v-if="checked" class="fluent-icon fluent-icon-check-mark fluent-checkbox-check"></span>
+      <span style="margin-left: 22px;"> {{checked}}</span>
     </label>
 </template>
 

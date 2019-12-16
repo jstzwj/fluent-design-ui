@@ -1,26 +1,50 @@
 <template>
-    <component :is="tagName" :class="classes"
+  <button class="fluent-button"
+    v-bind:class="{ 'fluent-button-primary': primary, 'theme-dark': dark, 'theme-light': !dark }"
+    ref="btn"
     v-on:mousedown="onMousedown"
-    v-on:mouseup="onMouseup" ref="btn">
-        <span ref="slot"><slot></slot></span>
-    </component>
+    v-on:mouseup="onMouseup"
+    :type="type"
+    :disabled="disabled">
+    <slot>{{ label }}</slot>
+  </button>
 </template>
 
 <script>
 export default {
   name: 'Button',
-  props: [],
+  props: {
+    label: {
+      type: String,
+      default: 'Button'
+    },
+    type: {
+      type: String,
+      default: 'button'
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    click: {
+      type: Function,
+      default: () => {}
+    },
+    primary: {
+      type: Boolean,
+      default: false
+    },
+    dark: {
+      type: Boolean,
+      default: false
+    }
+  },
   data: function () {
     return {
     }
   },
   computed: {
-    classes () {
-      return ['fluent-button']
-    },
-    tagName () {
-      return 'button'
-    }
+    
   },
   methods: {
     onMousedown: function (event) {
@@ -41,7 +65,7 @@ export default {
       }
 
       var btn = this.$refs.btn
-      if (btn.hasAttribute('disabled')) { return }
+      if (this.disabled) { return }
       var rect = btn.getBoundingClientRect()
       var left = getLeft(btn)
       var top = getTop(btn)
@@ -55,7 +79,7 @@ export default {
     },
     onMouseup: function (event) {
       var btn = this.$refs.btn
-      if (btn.hasAttribute('disabled')) { return }
+      if (this.disabled) { return }
       btn.style.transform = `rotateX(0deg) rotateY(0deg) scaleX(1) scaleY(1)`
     }
   }

@@ -15,20 +15,22 @@
 
     .button-color(@LightBaseHighColor, @LightBaseLowColor, transparent);
     .button-disabled-color(@LightChromeDisabledLowColor, @LightChromeDisabledHighColor, transparent);
-    .button-hover-color(@LightBaseHighColor, @LightBaseLowColor, @LightBaseMediumLowColor);
-    .button-active-color(@LightBaseHighColor, @LightBaseMediumLowColor, transparent);
-
+    .button-hover-color(@LightBaseHighColor, @LightListLowColor, transparent);
+    .button-active-color(@LightBaseHighColor, @LightBaseMediumLowColor, @LightBaseLowColor);
+    
     &.theme-dark{
         .button-color(@DarkBaseHighColor, @DarkBaseLowColor, transparent);
-        .button-disabled-color(@DarkChromeDisabledLowColor, @DarkChromeDisabledHighColor, transparent);
-        .button-hover-color(@DarkBaseHighColor, @DarkBaseLowColor, @DarkBaseMediumLowColor);
-        .button-active-color(@DarkBaseHighColor, @DarkBaseMediumLowColor, transparent);
+        .button-disabled-color(@DarkChromeDisabledLowColor, @DarkBaseLowColor, transparent);
+        .button-hover-color(@DarkBaseHighColor, @DarkBaseLowColor, transparent);
+        .button-active-color(@DarkBaseHighColor, @DarkBaseMediumLowColor, @DarkBaseLowColor);
     }
 
     &.theme-light{
         .button-color(@LightBaseHighColor, @LightBaseLowColor, transparent);
         .button-disabled-color(@LightChromeDisabledLowColor, @LightChromeDisabledHighColor, transparent);
-        .button-hover-color(@LightBaseHighColor, @LightBaseLowColor, @LightBaseMediumLowColor);
-        .button-active-color(@LightBaseHighColor, @LightBaseMediumLowColor, transparent);
+        .button-hover-color(@LightBaseHighColor, @LightListLowColor, transparent);
+        .button-active-color(@LightBaseHighColor, @LightBaseMediumLowColor, @LightBaseLowColor);
     }
+
+
 }
